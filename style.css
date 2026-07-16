@@ -1,16 +1,105 @@
+/* ==========================================
+   1. CSS Reset & Global Styling
+   ========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(to bottom, #FFFDF7, #FAF3E0);
+    background-attachment: fixed;
+    color: #4B3621;
+    font-family: 'Noto Serif Telugu', serif;
+    line-height: 1.6;
+    position: relative;
+    padding-bottom: 60px;
+    /* Space for the bottom footer / countdown */
+}
+
+/* Background watermark image details */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: url("images/Tirumala .jpg") center center no-repeat;
+    background-size: contain;
+    opacity: 0.25;
+    z-index: -2;
+    pointer-events: none;
+    transform: translate3d(0, 0, 0); /* Promote to compositor layer */
+    will-change: transform;
+}
+
+/* ==========================================
+   2. Layout & Decorative Assets
+   ========================================== */
+.thoranam {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    pointer-events: none;
+    object-fit: cover;
+}
+
+.banana {
+    position: fixed;
+    bottom: 0;
+    z-index: -1;
+    pointer-events: none;
+    transform: translate3d(0, 0, 0); /* Promote to compositor layer */
+    will-change: transform;
+}
+
+.banana.left {
+    left: -20px;
+}
+
+.banana.right {
+    right: -20px;
+}
+
+.banana img {
+    height: 85vh;
+    width: auto;
+    display: block;
+    object-fit: contain;
+}
+
+.container {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 60px 30px;
+    position: relative;
+    z-index: 1;
+}
+
+/* ==========================================
+   3. Invitation Typography
+   ========================================== */
 .invitation {
+    max-width: 850px;
+    margin: auto;
     text-align: center;
     line-height: 2;
-    max-width: 850px;
-    font-size: 24px;
-    margin: auto;
     padding: 40px 20px;
+}
+
+.namam {
+    display: block;
+    width: 140px;
+    max-width: 35%;
+    margin: 20px auto 15px;
 }
 
 .subhalekha {
     font-family: "Noto Serif Telugu", serif;
     font-size: 50px;
-    font-weight: 700;
+    font-weight: bold;
     color: #D4AF37;
     /* Elegant gold */
     text-align: center;
@@ -23,102 +112,12 @@
 .parents,
 .groom-parents {
     font-size: 28px;
-    font-weight: 700;
-}
-
-.bride,
-.groom {
-    color: #D4AF37;
-    font-size: 42px;
-    margin: 18px 0;
-}
-
-.heading {
-    color: #D4AF37;
-    font-size: 38px;
-    margin: 20px 0;
-}
-
-.date {
-    color: #D4AF37;
-    font-size: 34px;
-}
-
-.invitation p {
-    font-size: 24px;
-}
-
-.couple-icon {
-    width: 120px;
-    margin: 25px auto;
-    display: block;
-}
-
-.subhalekha {
-    font-size: 50px;
-    color: #D4AF37;
-    text-align: center;
     font-weight: bold;
-    margin-top: 20px;
-    margin-bottom: 10px;
 }
 
-.sloka {
-    text-align: center;
-    line-height: 2;
-    font-size: 21px;
-    margin-bottom: 40px;
-}
-
-.venue {
-
-    text-align: center;
-
-    margin-top: 70px;
-
-    line-height: 2;
-
-}
-
-.venue h2 {
-
-    color: #D4AF37;
-
-    font-size: 34px;
-
-    margin-top: 35px;
-
-}
-
-.venue h3 {
-
-    font-size: 28px;
-
-    font-weight: bold;
-
-}
-
-.venue p {
-
+.our-daughter {
     font-size: 24px;
-
-}
-
-.icon {
-
-    width: 70px;
-
-    margin: 20px auto;
-
-    display: block;
-
-}
-
-.namam {
-    display: block;
-    width: 140px;
-    max-width: 35%;
-    margin: 20px auto 15px;
+    margin-top: 15px;
 }
 
 .bride,
@@ -138,186 +137,27 @@
     margin-right: 8px;
 }
 
-/* Banana Trees */
-
-.thoranam {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 10;
-    pointer-events: none;
-    object-fit: cover;
-}
-
-.banana {
-    position: fixed;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: -1;
-    pointer-events: none;
-}
-
-.left {
-    left: -25px;
-    /* Move slightly outside screen */
-}
-
-.right {
-    right: -25px;
-}
-
-.banana img {
-    height: 96vh;
-    /* Almost full screen */
-    width: auto;
+.couple-icon {
+    width: 120px;
+    margin: 25px auto;
     display: block;
-    object-fit: contain;
 }
 
-/* Main Content */
-
-.container {
-    max-width: 850px;
-    margin: 0 auto;
-    padding: 50px 30px;
-    position: relative;
-    z-index: 1;
+.heading {
+    color: #D4AF37;
+    font-size: 38px;
+    margin: 20px 0;
 }
 
-/* Tablet */
-
-@media (max-width:1024px) {
-
-    .banana img {
-        width: 130px;
-    }
-
-    .left {
-        left: 5px;
-    }
-
-    .right {
-        right: 5px;
-    }
-}
-
-/* Mobile */
-
-@media (max-width:768px) {
-
-    .banana img {
-        width: 75px;
-        opacity: .35;
-    }
-
-    .left {
-        left: 0;
-    }
-
-    .right {
-        right: 0;
-    }
-
-    .container {
-        padding: 25px 18px;
-    }
-
-    .subhalekha {
-        font-size: 36px;
-    }
-
-    .bride,
-    .groom {
-        font-size: 28px;
-    }
-
-    .parents,
-    .groom-parents {
-        font-size: 22px;
-    }
-
-    .heading {
-        font-size: 28px;
-    }
-
-    .date {
-        font-size: 24px;
-    }
-
-    .invitation p,
-    .venue p {
-        font-size: 18px;
-    }
-
-    .prefix {
-        font-size: 16px;
-    }
-
-    .venue h2 {
-        font-size: 24px;
-    }
-
-    .venue h3 {
-        font-size: 22px;
-    }
-
-    .thoranam {
-        margin-top: -20px;
-    }
-}
-
-body {
-
-    background: linear-gradient(to bottom,
-            #FFFDF7,
-            #FAF3E0);
-    background-attachment: fixed;
-
-    color: #4B3621;
-
-    font-family: 'Noto Serif Telugu', serif;
-
-}
-
-
-
-body::before {
-
-    content: "";
-
-    position: fixed;
-
-    inset: 0;
-
-    background: url("images/Tirumala\ .jpg") center center no-repeat;
-
-    background-size: contain;
-
-    opacity: 0.25;
-
-    z-index: -2;
-}
-
-.map-link {
-    display: inline-block;
-    margin-top: 15px;
-    text-decoration: none;
-    color: #8B1538;
+.date {
+    color: #D4AF37;
+    font-size: 34px;
     font-weight: bold;
-    transition: .3s;
 }
 
-.map-link:hover {
-    transform: scale(1.05);
-}
-
-
-
-.map-link span {
-    display: block;
-    margin-top: 8px;
-    font-size: 18px;
+.invitation p {
+    font-size: 24px;
+    margin-bottom: 10px;
 }
 
 .venue-name {
@@ -332,7 +172,6 @@ body::before {
     width: 24px;
     height: 24px;
     object-fit: contain;
-    /* Prevents stretching */
     flex-shrink: 0;
 }
 
@@ -350,177 +189,181 @@ body::before {
 
 .pushkarakalam-icon {
     width: 120px;
-    /* Try 100px, 120px, or 150px */
     height: auto;
     display: block;
     margin: 20px auto;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+.invitation h2 {
+    color: #D4AF37;
+    margin-top: 15px;
 }
 
-body {
-
-    min-height: 100vh;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    padding: 20px;
-
-    font-family: 'Cinzel', serif;
-
-    background: linear-gradient(135deg, #fff8ef, #f8efe2, #fff8ef);
-}
-
+/* ==========================================
+   4. Countdown Section Styling (English)
+   ========================================== */
 .countdown-section {
-
     width: 100%;
-    max-width: 950px;
-
     text-align: center;
+    margin-top: 50px;
+    font-family: 'Cinzel', serif;
 }
 
 .count-title {
-
-    font-size: 1.3rem;
-
-    margin-bottom: 15px;
-
+    font-size: 1.5rem;
+    margin-bottom: 20px;
     color: #8b5a00;
 }
 
 .countdown {
-
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 12px;
-
+    gap: 15px;
     flex-wrap: wrap;
-
     max-width: 520px;
-
     margin: 25px auto;
-
-    padding: 12px 18px;
-
+    padding: 15px 25px;
     border-radius: 40px;
-
-    background: rgba(255, 255, 255, .65);
-
-    border: 1px solid rgba(212, 175, 55, .35);
-
+    background: rgba(255, 255, 255, 0.75);
+    border: 1px solid rgba(212, 175, 55, 0.35);
     backdrop-filter: blur(10px);
-
-    box-shadow: 0 8px 20px rgba(0, 0, 0, .08);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
 }
 
 .time-card {
-
-    min-width: 65px;
+    min-width: 70px;
 }
 
 .time-card span {
-
     display: block;
-
-    font-size: 1.8rem;
-
+    font-size: 2rem;
     font-weight: 700;
-
     color: #c89b00;
-
     line-height: 1;
 }
 
 .time-card small {
-
     display: block;
-
     margin-top: 5px;
-
-    font-size: 0.65rem;
-
+    font-size: 0.7rem;
     letter-spacing: 1px;
-
     text-transform: uppercase;
-
     color: #7b5a20;
 }
 
 .divider {
-
     width: 1px;
-
     height: 35px;
-
-    background: linear-gradient(transparent,
-            #d4af37,
-            transparent);
+    background: linear-gradient(transparent, #d4af37, transparent);
 }
 
-
+/* ==========================================
+   5. Mobile Responsiveness (Viewports <= 768px)
+   ========================================== */
 @media (max-width: 768px) {
+    .container {
+        padding: 30px 15px 40px;
+    }
 
-    .countdown-section {
+    .invitation {
         padding: 20px 10px;
+        line-height: 1.8;
     }
 
-    .count-title {
-        font-size: 1.2rem;
-        margin-bottom: 15px;
+    /* Hide fixed banana trees to prevent text overlap and space issues */
+    .banana {
+        display: none !important;
     }
 
+    /* Adjust top thoranam styling */
+    .thoranam {
+        height: auto;
+        max-height: 80px;
+    }
+
+    /* Typography scaling */
+    .subhalekha {
+        font-size: 32px;
+        margin: 15px 0;
+    }
+
+    .parents,
+    .groom-parents {
+        font-size: 19px;
+    }
+
+    .our-daughter {
+        font-size: 16px;
+        margin-top: 10px;
+    }
+
+    .bride,
+    .groom {
+        font-size: 28px;
+        margin: 12px 0;
+    }
+
+    .prefix {
+        font-size: 16px;
+    }
+
+    .couple-icon {
+        width: 90px;
+        margin: 20px auto;
+    }
+
+    .heading {
+        font-size: 26px;
+        margin: 15px 0;
+    }
+
+    .date {
+        font-size: 24px;
+    }
+
+    .invitation p {
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+
+    .venue-link {
+        font-size: 22px;
+    }
+
+    .pushkarakalam-icon {
+        width: 90px;
+        margin: 15px auto;
+    }
+
+    .invitation h2 {
+        font-size: 24px;
+    }
+}
+
+/* Viewports <= 480px (Strictly Mobile Portrait) */
+@media (max-width: 480px) {
+    /* Clean up countdown dividers on wrapping */
     .countdown {
-
-        width: 100%;
-
-        max-width: 360px;
-
-        margin: auto;
-
-        padding: 12px 10px;
-
-        display: flex;
-
-        justify-content: space-between;
-
-        align-items: center;
-
-        gap: 6px;
-
-        border-radius: 20px;
-    }
-
-    .time-card {
-
-        min-width: 60px;
-
-        flex: 1;
-    }
-
-    .time-card span {
-
-        font-size: 1.5rem;
-
-        font-weight: 700;
-    }
-
-    .time-card small {
-
-        font-size: .55rem;
-
-        letter-spacing: 1px;
+        gap: 10px;
+        padding: 15px;
+        border-radius: 25px;
     }
 
     .divider {
-
-        width: 1px;
-
-        height: 28px;
+        display: none !important;
     }
+
+    .time-card {
+        min-width: 60px;
+        flex: 1 1 40%; /* Wraps nicely into a 2x2 grid */
+    }
+
+    .time-card span {
+        font-size: 1.6rem;
+    }
+
+    .time-card small {
+        font-size: 0.6rem;
+    }
+}
