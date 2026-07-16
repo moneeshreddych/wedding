@@ -43,3 +43,22 @@ updateCountdown();
 
 // Store interval reference for clearability
 const countdownInterval = setInterval(updateCountdown, 1000);
+
+// Lock dynamic viewport height for mobile browsers to prevent scroll-repaint jank
+function lockMobileViewportHeight() {
+    const vh = window.innerHeight;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+}
+
+// Calculate on load
+window.addEventListener('DOMContentLoaded', lockMobileViewportHeight);
+
+// Re-calculate only when viewport width triggers real changes (e.g. orientation swap)
+let viewportWidth = window.innerWidth;
+window.addEventListener('resize', () => {
+    const currentWidth = window.innerWidth;
+    if (currentWidth !== viewportWidth) {
+        viewportWidth = currentWidth;
+        lockMobileViewportHeight();
+    }
+});

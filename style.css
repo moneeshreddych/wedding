@@ -7,51 +7,70 @@
     box-sizing: border-box;
 }
 
+html, body {
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
 body {
     min-height: 100vh;
-    background: linear-gradient(to bottom, #FFFDF7, #FAF3E0);
-    background-attachment: fixed;
     color: #4B3621;
     font-family: 'Noto Serif Telugu', serif;
     line-height: 1.6;
     position: relative;
     padding-bottom: 60px;
+    background-color: #FFFDF7; /* Fallback background coordinate */
     /* Space for the bottom footer / countdown */
 }
 
-/* Background watermark image details */
-body::before {
-    content: "";
+/* Background composition layers (GPU accelerated, dynamic resize independent) */
+.bg-gradient {
     position: fixed;
-    inset: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    height: calc(var(--vh, 100vh));
+    background: linear-gradient(to bottom, #FFFDF7, #FAF3E0);
+    z-index: -3;
+    pointer-events: none;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.bg-watermark {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    height: calc(var(--vh, 100vh));
     background: url("images/Tirumala .jpg") center center no-repeat;
     background-size: contain;
     opacity: 0.25;
     z-index: -2;
     pointer-events: none;
-    transform: translate3d(0, 0, 0); /* Promote to compositor layer */
-    will-change: transform;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
 }
 
 /* ==========================================
    2. Layout & Decorative Assets
    ========================================== */
-.thoranam {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 10;
-    pointer-events: none;
-    object-fit: cover;
-}
 
 .banana {
     position: fixed;
     bottom: 0;
     z-index: -1;
     pointer-events: none;
-    transform: translate3d(0, 0, 0); /* Promote to compositor layer */
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
     will-change: transform;
 }
 
@@ -82,7 +101,7 @@ body::before {
    3. Invitation Typography
    ========================================== */
 .invitation {
-    max-width: 850px;
+    width: 100%;
     margin: auto;
     text-align: center;
     line-height: 2;
@@ -271,15 +290,22 @@ body::before {
         line-height: 1.8;
     }
 
-    /* Hide fixed banana trees to prevent text overlap and space issues */
+    /* Show banana trees at bottom corners with mobile scaled height and opacity */
     .banana {
-        display: none !important;
+        display: block !important;
+    }
+    
+    .banana.left {
+        left: -15px;
     }
 
-    /* Adjust top thoranam styling */
-    .thoranam {
-        height: auto;
-        max-height: 80px;
+    .banana.right {
+        right: -15px;
+    }
+
+    .banana img {
+        height: 35vh;
+        opacity: 0.8;
     }
 
     /* Typography scaling */
