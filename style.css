@@ -1,0 +1,354 @@
+.invitation {
+    text-align: center;
+    line-height: 2;
+    max-width: 850px;
+    font-size: 24px;
+    margin: auto;
+    padding: 40px 20px;
+}
+
+.subhalekha {
+    font-family: "Noto Serif Telugu", serif;
+    font-size: 50px;
+    font-weight: 700;
+    color: #D4AF37;
+    /* Elegant gold */
+    text-align: center;
+    letter-spacing: 2px;
+    margin: 20px 0;
+    line-height: 1.3;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.parents,
+.groom-parents {
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.bride,
+.groom {
+    color: #D4AF37;
+    font-size: 42px;
+    margin: 18px 0;
+}
+
+.heading {
+    color: #D4AF37;
+    font-size: 38px;
+    margin: 20px 0;
+}
+
+.date {
+    color: #D4AF37;
+    font-size: 34px;
+}
+
+.invitation p {
+    font-size: 24px;
+}
+
+.couple-icon {
+    width: 120px;
+    margin: 25px auto;
+    display: block;
+}
+
+.subhalekha {
+    font-size: 50px;
+    color: #D4AF37;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.sloka {
+    text-align: center;
+    line-height: 2;
+    font-size: 21px;
+    margin-bottom: 40px;
+}
+
+.venue {
+
+    text-align: center;
+
+    margin-top: 70px;
+
+    line-height: 2;
+
+}
+
+.venue h2 {
+
+    color: #D4AF37;
+
+    font-size: 34px;
+
+    margin-top: 35px;
+
+}
+
+.venue h3 {
+
+    font-size: 28px;
+
+    font-weight: bold;
+
+}
+
+.venue p {
+
+    font-size: 24px;
+
+}
+
+.icon {
+
+    width: 70px;
+
+    margin: 20px auto;
+
+    display: block;
+
+}
+
+.namam {
+    display: block;
+    width: 140px;
+    max-width: 35%;
+    margin: 20px auto 15px;
+}
+
+.bride,
+.groom {
+    color: #D4AF37;
+    font-size: 42px;
+    font-weight: bold;
+    text-align: center;
+    margin: 18px 0;
+}
+
+.prefix {
+    font-size: 22px;
+    font-weight: 600;
+    color: #D4AF37;
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+/* Banana Trees */
+
+.thoranam {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    pointer-events: none;
+    object-fit: cover;
+}
+
+.banana {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+.left {
+    left: -25px;
+    /* Move slightly outside screen */
+}
+
+.right {
+    right: -25px;
+}
+
+.banana img {
+    height: 96vh;
+    /* Almost full screen */
+    width: auto;
+    display: block;
+    object-fit: contain;
+}
+
+/* Main Content */
+
+.container {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 50px 30px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Tablet */
+
+@media (max-width:1024px) {
+
+    .banana img {
+        width: 130px;
+    }
+
+    .left {
+        left: 5px;
+    }
+
+    .right {
+        right: 5px;
+    }
+}
+
+/* Mobile */
+
+@media (max-width:768px) {
+
+    .banana img {
+        width: 75px;
+        opacity: .35;
+    }
+
+    .left {
+        left: 0;
+    }
+
+    .right {
+        right: 0;
+    }
+
+    .container {
+        padding: 25px 18px;
+    }
+
+    .subhalekha {
+        font-size: 36px;
+    }
+
+    .bride, .groom {
+        font-size: 28px;
+    }
+
+    .parents, .groom-parents {
+        font-size: 22px;
+    }
+
+    .heading {
+        font-size: 28px;
+    }
+
+    .date {
+        font-size: 24px;
+    }
+
+    .invitation p, .venue p {
+        font-size: 18px;
+    }
+
+    .prefix {
+        font-size: 16px;
+    }
+    
+    .venue h2 {
+        font-size: 24px;
+    }
+
+    .venue h3 {
+        font-size: 22px;
+    }
+
+    .thoranam {
+        margin-top: -20px;
+    }
+}
+
+body {
+
+    background: linear-gradient(to bottom,
+            #FFFDF7,
+            #FAF3E0);
+    background-attachment: fixed;
+
+    color: #4B3621;
+
+    font-family: 'Noto Serif Telugu', serif;
+
+}
+
+
+
+body::before {
+
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    background: url("images/Tirumala\ .jpg") center center no-repeat;
+
+    background-size: contain;
+
+    opacity: 0.25;
+
+    z-index: -2;
+}
+
+.map-link {
+    display: inline-block;
+    margin-top: 15px;
+    text-decoration: none;
+    color: #8B1538;
+    font-weight: bold;
+    transition: .3s;
+}
+
+.map-link:hover {
+    transform: scale(1.05);
+}
+
+
+
+.map-link span {
+    display: block;
+    margin-top: 8px;
+    font-size: 18px;
+}
+
+.venue-name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.map-icon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    /* Prevents stretching */
+    flex-shrink: 0;
+}
+
+.venue-link {
+    text-decoration: none;
+    color: #8B1538;
+    font-size: 30px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.venue-link:hover {
+    color: #C2185B;
+}
+
+.pushkarakalam-icon {
+    width: 120px;
+    /* Try 100px, 120px, or 150px */
+    height: auto;
+    display: block;
+    margin: 20px auto;
+}
